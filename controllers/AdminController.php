@@ -8,8 +8,6 @@ use app\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\models\UploadForm;
-use yii\web\UploadedFile;
 
 /**
  * AdminController implements the CRUD actions for SelectForm model.
@@ -88,15 +86,12 @@ class AdminController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->avatar = UploadedFile::getInstance($model, 'avatar');
 
-        if ($model instanceof UploadedFile && $model->validate())
-            $model->avatar->saveAs(\Yii::getAlias('@webroot/ava') . '/' . $model->avatar->baseName . '.' . $model->avatar->extension, false);
+        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            if(\Yii::$app->request->isPost()){print_r($model->getErrors());exit;}
+            if(\Yii::$app->request->isPost){print_r($model->getErrors());exit;}
 
             return $this->render('update', [
                 'model' => $model,

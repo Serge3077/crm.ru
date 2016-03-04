@@ -3,7 +3,8 @@
 namespace app\models;
 
 use Yii;
-
+use app\models\UploadForm;
+use yii\web\UploadedFile;
 /**
  * This is the model class for table "user".
  *
@@ -31,16 +32,35 @@ class SelectForm extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $qq = UploadedFile::getInstance($this, 'avatar');
+            if ($this->validate() && $qq instanceof UploadedFile) {
+                $qq->saveAs(\Yii::getAlias('@webroot/ava') . DIRECTORY_SEPARATOR . $qq->baseName . '.' . $qq->extension, false);
+                $this->avatar = '@web/ava' . DIRECTORY_SEPARATOR . $qq->baseName . '.' . $qq->extension;
+            } else {
+                $this->avatar = $this->getOldAttributes()['avatar'];
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public function rules()
     {
         return [
 
             [['name', 'surname', 'middlename', 'sex', 'birth_date', 'city', 'position', 'subdivision'], 'safe'],
-            // [['birth_date'], 'safe'],
+            [['birth_date'], 'safe'],
             [['avatar'], 'file', 'extensions' => ['gif', 'jpg']],
-            /**[['name', 'surname', 'middlename', 'city'], 'string', 'max' => 52],
-            //[['sex'], 'string', 'max' => 3],
-            //[['position', 'subdivision'], 'string', 'max' => 100],**/
+            [['name', 'surname', 'middlename', 'city'], 'string', 'max' => 52],
+            [['sex'], 'string', 'max' => 3],
+            [['position', 'subdivision'], 'string', 'max' => 100],
         ];
     }
 
