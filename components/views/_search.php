@@ -11,7 +11,7 @@ use app\models\User;
 
 <div class="select-form-search">
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['admin/index'],
         'method' => 'get',
     ]); ?>
 
