@@ -92,6 +92,13 @@ a.desc:after {
 .form-group{
     width: 10vw;
 }
+.search_widget{
+    display: inline-block;
+}
+.main_content{
+    display: inline-block;
+    vertical-align: top;
+}
 
 .select-form-search{
     display: inline-block;

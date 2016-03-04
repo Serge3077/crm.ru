@@ -61,8 +61,9 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= SearchWidget::widget(/*...*/) ?>
-        <?= $content ?>
+        <div class="search_widget"><?= SearchWidget::widget() ?></div>
+        <div class="main_content"><?= $content ?></div>
+
     </div>
 </div>
 

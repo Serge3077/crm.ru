@@ -13,8 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;**/
 ?>
 <div class="select-form-index">
 
-    <h1><?php // echo Html::encode($this->title) ?></h1>
-    <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
     <div style="display: inline-block;vertical-align: top;">
            <?= ListView::widget([
             'dataProvider' => $dataProvider,

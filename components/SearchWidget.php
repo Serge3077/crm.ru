@@ -9,14 +9,14 @@ namespace app\components;
 
 use yii\base\Widget;
 use yii\helpers\Html;
-
+use app\models\SelectForm;
 
 class SearchWidget extends Widget
 {
 
     public function run(){
-        $form = new _search();
-        return $this->render('_search', ['_search' => $form]);
+        $form = new SelectForm();
+        return $this->render('_search', ['model' => $form]);
     }
 
 }
