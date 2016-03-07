@@ -1,4 +1,4 @@
-Yii 2 Basic Project Template
+Yii 2 miniCRM (Card file employees)
 ============================
 
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
@@ -16,6 +16,7 @@ DIRECTORY STRUCTURE
 -------------------
 
       assets/             contains assets definition
+      components/         contains components (widgets), of functionality, as like widget classes & view files
       commands/           contains console commands (controllers)
       config/             contains application configurations
       controllers/        contains Web controller classes

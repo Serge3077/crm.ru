@@ -40,10 +40,12 @@ class AdminController extends Controller
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+        {print_r($dataProvider);exit;}
     }
 
     /**
@@ -91,7 +93,7 @@ class AdminController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            if(\Yii::$app->request->isPost){print_r($model->getErrors());exit;}
+            //if(\Yii::$app->request->isPost){print_r($model->getErrors());exit;}
 
             return $this->render('update', [
                 'model' => $model,

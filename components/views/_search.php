@@ -15,8 +15,6 @@ use app\models\User;
         'method' => 'get',
     ]); ?>
 
-    <?php // echo $form->field($model, 'id') ?>
-
     <?= $form->field($model, 'name') ?>
 
     <?= $form->field($model, 'surname') ?>
@@ -32,8 +30,6 @@ use app\models\User;
     <?= $form->field($model, 'position')->dropdownList(User::find()->select(['position', 'id'])->indexBy('position')->column(), ['prompt'=>'Должность']);  ?>
 
     <?= $form->field($model, 'subdivision')->dropdownList(User::find()->select(['subdivision', 'id'])->indexBy('subdivision')->column(), ['prompt'=>'Подразделение']); ?>
-
-    <?php // echo $form->field($model, 'avatar') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

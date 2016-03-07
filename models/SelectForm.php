@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use app\models\UploadForm;
 use yii\web\UploadedFile;
 /**
  * This is the model class for table "user".
@@ -33,23 +32,7 @@ class SelectForm extends \yii\db\ActiveRecord
      * @inheritdoc
      */
 
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            $qq = UploadedFile::getInstance($this, 'avatar');
-            if ($this->validate() && $qq instanceof UploadedFile) {
-                $qq->saveAs(\Yii::getAlias('@webroot/ava') . DIRECTORY_SEPARATOR . $qq->baseName . '.' . $qq->extension, false);
-                $this->avatar = '@web/ava' . DIRECTORY_SEPARATOR . $qq->baseName . '.' . $qq->extension;
-            } else {
-                $this->avatar = $this->getOldAttributes()['avatar'];
-            }
 
-            return true;
-        } else {
-            return false;
-        }
-
-    }
 
     public function rules()
     {
@@ -81,4 +64,24 @@ class SelectForm extends \yii\db\ActiveRecord
             'avatar' => 'Avatar',
         ];
     }
+
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $qq = UploadedFile::getInstance($this, 'avatar');
+            if ($this->validate() && $qq instanceof UploadedFile) {
+                $qq->saveAs(\Yii::getAlias('@webroot/ava') . DIRECTORY_SEPARATOR . $qq->baseName . '.' . $qq->extension, false);
+                $this->avatar = '@web/ava' . DIRECTORY_SEPARATOR . $qq->baseName . '.' . $qq->extension;
+            } else {
+                $this->avatar = $this->getOldAttributes()['avatar'];
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
+
