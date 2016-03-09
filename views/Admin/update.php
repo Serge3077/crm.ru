@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ListView;
+use app\components\SResultsWidget;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\SelectForm */
@@ -19,6 +19,6 @@ $this->params['breadcrumbs'][] = ['label' => $model->name . ' ' . $model->surnam
     ]) ?>
 
 </div>
-<div class="search_res_right">
-
+<div class="sresults_right">
+    <?= SResultsWidget::widget() ?>
 </div>

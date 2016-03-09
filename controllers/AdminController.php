@@ -45,7 +45,6 @@ class AdminController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-        {print_r($dataProvider);exit;}
     }
 
     /**

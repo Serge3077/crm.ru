@@ -94,10 +94,12 @@ a.desc:after {
 }
 .search_widget{
     display: inline-block;
+    vertical-align: top;
 }
 .main_content{
     display: inline-block;
     vertical-align: top;
+    width: 82%;
 }
 
 .select-form-search{
@@ -109,4 +111,14 @@ a.desc:after {
 }
 .item img{
     width: 200px;
+}
+.sresults_right{
+    width: 200px;
+    display: inline-block;
+    float: right;
+    overflow: auto;
+    height: 80vh;
+}
+.select-form-update{
+    display: inline-block;
 }

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\User;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\UserSearch */
@@ -10,7 +11,9 @@ use app\models\User;
 ?>
 
 <div class="select-form-search">
+    <?php Pjax::begin(['id' => 'new_search']) ?>
     <?php $form = ActiveForm::begin([
+        'options' => ['data-pjax' => true],
         'action' => ['admin/index'],
         'method' => 'get',
     ]); ?>
@@ -37,4 +40,5 @@ use app\models\User;
     </div>
 
     <?php ActiveForm::end(); ?>
+    <?php Pjax::end() ?>
 </div>
