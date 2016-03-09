@@ -1,13 +1,14 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\SelectForm */
 
 /*$this->title = 'Update Select Form: ' . ' ' . $model->name;*/
-$this->params['breadcrumbs'][] = ['label' => 'Select Forms', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name . ' ' . $model->surname, 'url' => ['update', 'id' => $model->id]];
+/**$this->params['breadcrumbs'][] = ['label' => 'Select Forms', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name . ' ' . $model->surname, 'url' => ['update', 'id' => $model->id]];**/
 ?>
 <div class="select-form-update">
 
@@ -16,5 +17,8 @@ $this->params['breadcrumbs'][] = ['label' => $model->name . ' ' . $model->surnam
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
+
+</div>
+<div class="search_res_right">
 
 </div>

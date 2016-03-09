@@ -11,6 +11,8 @@ use yii\helpers\ArrayHelper;
 /**$this->title = 'Select Forms';
 $this->params['breadcrumbs'][] = $this->title;**/
 ?>
+
+<? Pjax::begin(['timeout' => 20000, 'clientOptions' => ['container' => 'pjax-container']]) ?>
 <div class="select-form-index">
 
     <div style="display: inline-block;vertical-align: top;">
@@ -32,3 +34,4 @@ $this->params['breadcrumbs'][] = $this->title;**/
         ]);   ?>
     </div>
     </div>
+<? Pjax::end() ?>
