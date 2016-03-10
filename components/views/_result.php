@@ -30,3 +30,4 @@ echo ListView::widget([
 
     }
 ]);
+Pjax::end();
