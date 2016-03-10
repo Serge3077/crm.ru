@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->name . ' ' . $model->surnam
 ?>
 <div class="select-form-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <p><?= Html::tag('p', Html::a(Html::encode('Вернуться к списку'), ['index'], ['data-pjax'=>0]), ['class' => 'BackLink']) ?></p>
     <?php \yii\widgets\Pjax::begin(); ?>
     <?= $this->render('_form', [
         'model' => $model,

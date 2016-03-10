@@ -10,11 +10,22 @@ use yii\widgets\Pjax;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<?
+$this->registerJs(
+    '$("document").ready(function(){
+        $("#new_search").on("pjax:end", function() {
+            $.pjax.reload({container:"#results-right"});  //Reload GridView
+        });
+    });'
+);
+?>
+
 <div class="select-form-search">
     <?php Pjax::begin(['id' => 'new_search']) ?>
     <?php $form = ActiveForm::begin([
-        'options' => ['data-pjax' => true],
-        'action' => ['admin/index'],
+        'options' => [
+            'data-pjax' => true,
+            'class' => 'selectForm'],
         'method' => 'get',
     ]); ?>
 
