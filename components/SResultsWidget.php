@@ -18,8 +18,9 @@ class SResultsWidget extends Widget
 {
 
     public function run(){
+
         $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->get());
         return $this->render('_result', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

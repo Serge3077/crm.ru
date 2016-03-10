@@ -8,8 +8,25 @@
 use yii\helpers\Html;
 use yii\widgets\ListView;
 use yii\helpers\ArrayHelper;
+use yii\widgets\Pjax; ?>
 
+<script type="text/javascript">
+$('.btn btn-primary').on('click', function(event) {
+    event.preventDefault();
+    $.pjax.reload({container: '#w3',
+        type       : 'GET',
+        url        : $(this).attr("href"),
+        data       : {},
+        push       : true,
+        replace    : false,
+        timeout    : 1000,});
+});
+</script>
+
+<?php
+Pjax::begin();
 echo ListView::widget([
+    'options' => ['data-pjax' => 1],
     'dataProvider' => $dataProvider,
     'itemOptions' => ['class' => 'item'],
     'itemView' => function ($model, $key, $index, $widget){
@@ -25,3 +42,4 @@ echo ListView::widget([
 
     }
 ]);
+Pjax::end();

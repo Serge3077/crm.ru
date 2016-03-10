@@ -13,11 +13,11 @@ $this->params['breadcrumbs'][] = ['label' => $model->name . ' ' . $model->surnam
 <div class="select-form-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <?php \yii\widgets\Pjax::begin(); ?>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-
+    <?php \yii\widgets\Pjax::end(); ?>
 </div>
 <div class="sresults_right">
     <?= SResultsWidget::widget() ?>
