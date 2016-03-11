@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ListView;
+use app\components\SResultsWidget;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\SelectForm */
@@ -25,40 +27,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>-->
     </p>
-
+    <div class="details">
     <?php
-    echo ListView::widget([
-        'options' => ['data-pjax' => 1],
-        'dataProvider' => $dataProvider,
-        'itemOptions' => ['class' => 'item'],
-        'itemView' => function ($model, $key, $index, $widget){
-            $defaultAva = '@web/ava/no_img.jpg';
-            $avatar = Html::img($model->avatar ? $model->avatar : $defaultAva, ['alt' => 'Фотография пользователя']);
-            /**$avatar = ArrayHelper::getValue($model, function ($model, $defaultAva) {
-            return Html::img($model->avatar, ['alt' => 'Фотография пользователя']);
-            });**/
-            $userCard = ArrayHelper::getValue($model, function ($model, $defaultValue) {
-                return Html::encode($model->name . ' ' . $model->surname);
-            });
-            return  $avatar . ' ' . Html::tag('p', Html::a(Html::encode($userCard), ['view', 'id' => $model->id], ['data-pjax'=>0]), ['class' => 'cardUsername']) . Html::tag('p', Html::a(Html::encode($model->position), ['view', 'position' => '&UserSearch%5Bsubdivision%5D=$model->position']), ['class' => 'cardSubdivision']) . Html::tag('p', Html::a(Html::encode($model->subdivision), ['view', 'subdivision' => '&UserSearch%5Bsubdivision%5D=$model->subdivision']), ['class' => 'cardSubdivision']);
-
-        }
-    ]);
+    $defaultAva = '@web/ava/no_img.jpg';
+    $avatar = Html::img($model->avatar ? $model->avatar : $defaultAva, ['alt' => 'Фотография пользователя']);
+    $userData = Html::tag('p',(Html::encode($model->name . ' ' . $model->surname)), ['class' => 'cardUsername']) .
+        Html::tag('p',(Html::encode($model->position)), ['class' => 'cardSubdivision']) .
+        Html::tag('p', Html::a(Html::encode($model->subdivision)), ['class' => 'cardSubdivision']);
+    $userCard = $avatar . ' ' . $userData;
+    echo $userCard;
     ?>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'avatar:image',
-            'name:html',
-            'surname',
-            'middlename',
-            'sex',
-            'birth_date',
-            'city',
-            'position',
-            'subdivision',
-        ],
-    ]) ?>
+    </div>
+    <div class="sresults_right">
+        <?= SResultsWidget::widget() ?>
+    </div>
 
 </div>

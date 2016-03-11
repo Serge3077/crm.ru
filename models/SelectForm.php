@@ -53,7 +53,7 @@ class SelectForm extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'name' => 'Имя',
+            'name' => 'name',
             'surname' => 'Фамилия',
             'middlename' => 'Отчество',
             'sex' => 'Пол',

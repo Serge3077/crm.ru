@@ -122,3 +122,6 @@ a.desc:after {
 .select-form-update{
     display: inline-block;
 }
+.details{
+    display: inline-block;
+}

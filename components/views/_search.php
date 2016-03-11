@@ -29,7 +29,7 @@ $this->registerJs(
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'name')->input(User::find()->select(['name', 'id'])->indexBy('name')->column(),['prompt'=>'Имя']); ?>
 
     <?= $form->field($model, 'surname') ?>
 
