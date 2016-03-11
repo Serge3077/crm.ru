@@ -9,9 +9,9 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\SelectForm */
 
-$this->title = $model->name .' ' . $model->surname;
+/**$this->title = $model->name .' ' . $model->surname;
 $this->params['breadcrumbs'][] = ['label' => 'Select Forms', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $this->title;**/
 ?>
 <div class="select-form-view">
 

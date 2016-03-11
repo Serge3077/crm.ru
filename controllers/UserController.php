@@ -52,7 +52,7 @@ class UserController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionUpdate($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -84,7 +84,7 @@ class UserController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    /**public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -98,7 +98,7 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }
-    }
+    }**/
 
     /**
      * Deletes an existing SelectForm model.
