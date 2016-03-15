@@ -89,11 +89,9 @@ class AdminController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-
+            $model->avatar = \yii\web\UploadedFile::getInstance($model, 'image');
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            //if(\Yii::$app->request->isPost){print_r($model->getErrors());exit;}
-
             return $this->render('update', [
                 'model' => $model,
             ]);

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use bupy7\cropbox\Cropbox;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\SelectForm */
@@ -11,6 +12,10 @@ use yii\widgets\ActiveForm;
 <div class="select-form-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+
+    <?= $form->field($model, 'avatar')->widget(Cropbox::className(), [
+        'attributeCropInfo' => 'crop_info',
+    ]);?>
 
     <?= $form->field($model, 'avatar')->fileInput() ?>
 
