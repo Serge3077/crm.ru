@@ -50,7 +50,9 @@ class SelectForm extends \yii\db\ActiveRecord
 
             [['name', 'surname', 'middlename', 'sex', 'birth_date', 'city', 'position', 'subdivision'], 'safe'],
             [['birth_date'], 'safe'],
-            [['avatar'], 'file', 'extensions' => ['gif', 'jpg', 'png']],
+            [['avatar'], 'file',
+                'extensions' => ['jpg', 'jpeg', 'png', 'gif'],
+                'mimeTypes' => ['image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'],],
             [['name', 'surname', 'middlename', 'city'], 'string', 'max' => 52],
             [['sex'], 'string', 'max' => 3],
             [['position', 'subdivision'], 'string', 'max' => 100],
@@ -147,7 +149,7 @@ class SelectForm extends \yii\db\ActiveRecord
 
         //saving original
         $this->image->saveAs(
-            Yii::getAlias('@path/to/save/image')
+            Yii::getAlias('@web/ava')
             . '/'
             . $this->id
             . '.'

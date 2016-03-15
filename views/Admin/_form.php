@@ -17,7 +17,7 @@ use bupy7\cropbox\Cropbox;
         'attributeCropInfo' => 'crop_info',
     ]);?>
 
-    <?= $form->field($model, 'avatar')->fileInput() ?>
+    <?php //$form->field($model, 'avatar')->fileInput() ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
