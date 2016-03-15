@@ -48,12 +48,9 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
+    public $layout = '/login.php';
 
-    public function actionLogin()
+    public function actionIndex()
     {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -66,6 +63,11 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+    }
+
+    public function actionLogin()
+    {
+
     }
 
     public function actionLogout()

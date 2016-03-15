@@ -4,12 +4,14 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\Html;
 
 /**
  * LoginForm is the model behind the login form.
  */
 class LoginForm extends Model
 {
+    public $avatar;
     public $username;
     public $password;
     public $rememberMe = true;
@@ -30,6 +32,13 @@ class LoginForm extends Model
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
+    }
+
+    public function getAvatar($model)
+    {
+        $defaultAva = '@web/ava/no_img.jpg';
+        $this->avatar = Html::img($model->avatar ? $model->avatar : $defaultAva, ['alt' => 'Фотография пользователя']);
+        return $this->avatar;
     }
 
     /**

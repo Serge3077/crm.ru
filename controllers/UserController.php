@@ -64,7 +64,7 @@ class UserController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    /**public function actionCreate()
     {
         $model = new SelectForm();
 
@@ -76,7 +76,7 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }
-    }
+    }**/
 
     /**
      * Updates an existing SelectForm model.
@@ -106,12 +106,12 @@ class UserController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    /**public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }**/
 
     /**
      * Finds the SelectForm model based on its primary key value.

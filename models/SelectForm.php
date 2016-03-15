@@ -40,7 +40,7 @@ class SelectForm extends \yii\db\ActiveRecord
 
             [['name', 'surname', 'middlename', 'sex', 'birth_date', 'city', 'position', 'subdivision'], 'safe'],
             [['birth_date'], 'safe'],
-            [['avatar'], 'file', 'extensions' => ['gif', 'jpg']],
+            [['avatar'], 'file', 'extensions' => ['gif', 'jpg', 'png']],
             [['name', 'surname', 'middlename', 'city'], 'string', 'max' => 52],
             [['sex'], 'string', 'max' => 3],
             [['position', 'subdivision'], 'string', 'max' => 100],

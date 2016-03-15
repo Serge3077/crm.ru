@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\components\SearchWidget;
 
 AppAsset::register($this);
 ?>
@@ -15,6 +16,13 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script>
+        $(function()
+        {
+            alert('Подключена последняя версия jQuery через Google хостинг');
+        });
+    </script>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
@@ -28,7 +36,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'Панель администратора',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => ['/admin/index'],
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
@@ -60,8 +68,8 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
+        <div class="login"><?= $content ?></div>
 
-        <?= $content ?>
     </div>
 </div>
 

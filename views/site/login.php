@@ -23,8 +23,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'labelOptions' => ['class' => 'col-lg-1 control-label'],
         ],
     ]); ?>
+    <div class="avatar">
+        <script>
+            $(document).ready(function(){
+                $("input#loginform-username").change(function(){
+                    alert("The text has been changed.");
+                });
+            });
+        </script>
+    </div>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => false]) ?>
 
         <?= $form->field($model, 'password')->passwordInput() ?>
 

@@ -89,9 +89,6 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
-.form-group{
-    width: 10vw;
-}
 .search_widget{
     display: inline-block;
     vertical-align: top;
@@ -124,4 +121,7 @@ a.desc:after {
 }
 .details{
     display: inline-block;
+}
+.login{
+
 }
